@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Yifei Zhao's homepage">
 <link rel="stylesheet" href="./files/jemdoc.css" type="text/css">
 <title>Yifei Zhao's Homepage</title>
@@ -9,10 +11,10 @@
 <body>
 <div id="layout-content" style="margin-top:25px">
 
-<table>
+<table class="profile-table">
 <tbody>
 <tr>
-<td width="670">
+<td class="profile-copy">
 <div id="toptitle">
 <h1>Yifei Zhao</h1>
 </div>
@@ -22,24 +24,28 @@
 Computer Science <br>
 University of Central Florida <br>
 Orlando, FL <br>
-<br>
-Email: <a href="mailto:yifei.zhao@ucf.edu">yifei.zhao@ucf.edu</a><br>
-<a href="https://scholar.google.com/citations?user=rEYrtYQAAAAJ&hl=en">[Google Scholar]</a>
-<a href="https://drive.google.com/file/d/1bO1rBaxoSnymfU8S46KlZ6zU-zg-IThY/view?usp=drive_link">[CV]</a><br>
 </p>
+<nav class="profile-links" aria-label="Profile links">
+<a class="profile-link" href="mailto:yifei.zhao@ucf.edu"><span class="link-icon icon-mail" aria-hidden="true"></span>yifei.zhao@ucf.edu</a>
+<a class="profile-link" href="https://scholar.google.com/citations?user=rEYrtYQAAAAJ&amp;hl=en"><img class="profile-brand-icon" src="./files/icons/google-scholar.ico" alt="">Google Scholar</a>
+<a class="profile-link" href="https://github.com/yifei-gpt"><img class="profile-brand-icon" src="./files/icons/github.svg" alt="">GitHub</a>
+</nav>
 </td>
-<td>
-<img src="./files/Yifei.jpg" border="0" width="200" alt="Yifei Zhao photo">
+<td class="profile-photo">
+<img class="profile-image" src="./files/Yifei.jpg" width="200" height="200" alt="Yifei Zhao">
 </td>
 </tr>
 </tbody>
 </table>
 
+<section class="content-section" id="biography">
 <h2>Biography</h2>
 <p>
-I am a Ph.D. student in Computer Science at the University of Central Florida, co-advised by Prof. Mengxin Zheng and Prof. Qian Lou. My research focuses on secure and efficient AI systems, including IP protection for AI models, trusted execution environments for LLMs, and model efficiency.
+I am a Ph.D. student in Computer Science at the University of Central Florida, co-advised by Prof. Mengxin Zheng and Prof. Qian Lou. My research focuses on secure and trustworthy AI systems, including <em>coding and multi-agent systems, intellectual property protection for AI agents, LLM routing, and on-device model verification</em>.
 </p>
+</section>
 
+<section class="content-section" id="education">
 <h2>Education</h2>
 <ul>
 <li>
@@ -51,59 +57,169 @@ Ph.D. in Computer Science, Aug 2024 - Present
 M.S. in Electrical and Computer Engineering, Sep 2023 - Jun 2024
 </li>
 </ul>
+</section>
 
+<section class="content-section" id="technical-skills">
+<h2>Technical Skills</h2>
+<ul>
+<li><strong>Agent Frameworks:</strong> NVIDIA NeMo Agent Toolkit, AWS Strands Agents SDK, LangChain, AutoGen, CrewAI</li>
+<li><strong>Agentic Systems:</strong> SWE-agent, multi-agent orchestration, LLM routing, sandboxed execution, MCP, RAG</li>
+<li><strong>ML Systems:</strong> PyTorch, vLLM, llama.cpp</li>
+</ul>
+</section>
+
+<section class="content-section" id="publications">
 <h2>Research Publications</h2>
-<p>(* indicates equal contribution)</p>
-<ul>
-<li>
-<a href="https://arxiv.org/abs/2604.17041"><strong>SIF: Semantically In-Distribution Fingerprints for Large Vision-Language Models</strong></a><br>
-<strong>Yifei Zhao</strong>, Qian Lou, Mengxin Zheng<br>
-IEEE/CVF Conference on Computer Vision and Pattern Recognition <strong>(CVPR)</strong>, Denver, Colorado, USA, 2026<br>
-<div style="margin-top:6px;"><strong>TL,DR:</strong> Developed an ownership verification framework for open-source vision-language models against unauthorized reuse and API-based redeployment.</div>
+<ul class="research-list">
+<li class="research-entry flow-entry flow-sif">
+<div class="entry-title"><strong><a class="entry-title-link" href="https://yifei-gpt.github.io/sif.github.io/">SIF</a>: Semantically In-Distribution Fingerprints for Large Vision-Language Models</strong></div>
+<div class="entry-body">
+<div class="entry-copy">
+<div class="entry-meta">
+<div class="entry-authors"><strong>Yifei Zhao</strong>, Qian Lou, Mengxin Zheng</div>
+<div class="entry-venue venue-line"><img class="venue-logo venue-logo-cvpr" src="./files/logos/cvpr.svg" alt=""><span>IEEE/CVF Conference on Computer Vision and Pattern Recognition <strong>(CVPR)</strong>, 2026</span></div>
+</div>
+<div class="summary"><strong>TL;DR:</strong> Distilled decoding watermarks into natural visual queries for stealthy, robust black-box LVLM ownership verification.</div>
+</div>
+<!-- Research microfigure: SIF
+<figure class="microviz sif-viz" role="img" aria-label="A decoding watermark is distilled backward into a visually unchanged trigger image, then standard decoding from a frozen LVLM produces a natural response with a statistically detectable signal.">
+<span class="sif-teacher"><i></i><i></i><i></i><i></i><i></i></span>
+<span class="sif-distill"><i></i></span>
+<span class="sif-image"><span></span></span>
+<span class="sif-forward sif-forward-in"></span>
+<span class="sif-model">LVLM<span></span></span>
+<span class="sif-forward sif-forward-out"></span>
+<span class="sif-output"><i></i><i></i><i></i><i></i><i></i></span>
+<span class="sif-meter"><i></i><b>τ</b></span>
+<span class="viz-label sif-label-distill">distill into image</span>
+<span class="viz-label sif-label-model">frozen LVLM</span>
+<span class="viz-label sif-label-meter">z &gt; τ</span>
+</figure>
+-->
+</div>
 </li>
-<li>
-<a href="https://arxiv.org/abs/2509.06326"><strong>AttestLLM: Efficient Attestation Framework for Billion-scale On-device LLMs</strong></a><br>
-Ruisi Zhang*, <strong>Yifei Zhao*</strong>, Neusha Javidnia, Mengxin Zheng, Farinaz Koushanfar<br>
-Design Automation Conference <strong>(DAC)</strong>, Long Beach, California, USA, 2026<br>
-<div style="margin-top:6px;"><strong>TL,DR:</strong> Designed and implemented a TEE-based framework for model integrity verification of billion-parameter on-device LLMs on ARM edge platforms.</div>
+<li class="research-entry flow-entry flow-attestllm">
+<div class="entry-title"><strong><a class="entry-title-link" href="https://arxiv.org/abs/2509.06326">AttestLLM</a>: Efficient Attestation Framework for Billion-scale On-device LLMs</strong></div>
+<div class="entry-body">
+<div class="entry-copy">
+<div class="entry-meta">
+<div class="entry-authors">Ruisi Zhang*, <strong>Yifei Zhao*</strong>, Neusha Javidnia, Mengxin Zheng, Farinaz Koushanfar</div>
+<div class="entry-venue venue-line"><img class="venue-logo venue-logo-dac" src="./files/logos/dac-2026.png" alt=""><span>Design Automation Conference <strong>(DAC)</strong>, 2026</span></div>
+</div>
+<div class="summary"><strong>TL;DR:</strong> Verified on-device LLM integrity through randomized, layer-wise watermark checks inside a TEE.</div>
+</div>
+<!-- Research microfigure: AttestLLM
+<figure class="microviz attest-viz" role="img" aria-label="Normal inference remains in the REE while a trusted TEE timer randomly requests a few watermarked layers, securely copies each selected layer, and decodes its signature using stored trigger activations.">
+<span class="attest-backbone"><i></i><i></i><i></i></span>
+<span class="attest-timer"><span></span></span>
+<span class="attest-request"></span>
+<span class="attest-stack"><i></i><i></i><i></i><i></i><i></i></span>
+<span class="attest-copy"></span>
+<span class="attest-boundary"><b>TEE</b></span>
+<span class="attest-trace"><i></i><i></i><i></i></span>
+<span class="attest-seal"><span></span></span>
+<span class="viz-label attest-label-ree">REE · normal inference</span>
+<span class="viz-label attest-label-tee">random layer spot-check</span>
+</figure>
+-->
+</div>
+</li>
+<li class="research-entry flow-entry flow-realm">
+<div class="entry-title"><strong><a class="entry-title-link" href="https://arxiv.org/abs/2606.23892">REALM</a>: A Unified Red-Teaming Benchmark for Physical-World VLMs</strong></div>
+<div class="entry-body">
+<div class="entry-copy">
+<div class="entry-meta">
+<div class="entry-authors"><strong>Yifei Zhao</strong>, Qian Lou, Mengxin Zheng</div>
+<div class="entry-venue venue-line"><img class="venue-logo venue-logo-arxiv" src="./files/logos/arxiv.svg" alt="arXiv"><span>preprint, 2026</span></div>
+</div>
+<div class="summary"><strong>TL;DR:</strong> Built an agentic target-generation pipeline that aligns heterogeneous physical-world VLM attacks through shared, scene-specific targets.</div>
+</div>
+<!-- Research microfigure: REALM
+<figure class="microviz realm-viz" role="img" aria-label="An agent derives a shared scene-specific target answer and reference image, aligning heterogeneous attack channels under one black-box evaluation protocol.">
+<span class="realm-scene"><span></span></span>
+<span class="realm-link"></span>
+<span class="realm-hub"><span></span></span>
+<span class="realm-target-pair"><i class="realm-target-answer">a*</i><i class="realm-target-image"></i></span>
+<span class="realm-ray realm-ray-top"></span>
+<span class="realm-ray realm-ray-mid"></span>
+<span class="realm-ray realm-ray-bottom"></span>
+<span class="realm-matrix"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+<span class="viz-label realm-label-scene">scene</span>
+<span class="viz-label realm-label-hub">shared {answer, image}</span>
+<span class="viz-label realm-label-matrix">one protocol</span>
+</figure>
+-->
+</div>
+</li>
+<li class="research-entry">
+<div class="entry-title"><strong><a class="entry-title-link" href="https://arxiv.org/abs/2510.23891">PRO</a>: Enabling Precise and Robust Text Watermark for Open-Source LLMs</strong></div>
+<div class="entry-body">
+<div class="entry-copy">
+<div class="entry-meta">
+<div class="entry-authors">Jiaqi Xue*, <strong>Yifei Zhao*</strong>, Mansour Al Ghanim, Shangqian Gao, Ruimin Sun, Qian Lou, Mengxin Zheng</div>
+<div class="entry-venue venue-line"><img class="venue-logo venue-logo-arxiv" src="./files/logos/arxiv.svg" alt="arXiv"><span>preprint, 2025</span></div>
+</div>
+<div class="summary"><strong>TL;DR:</strong> Enabled open-source LLMs to natively generate watermarked text that remains detectable under downstream model modifications.</div>
+</div>
+</div>
 </li>
 </ul>
+</section>
 
-<h2>Preprint Publications</h2>
-<ul>
-<li>
-<a href="https://arxiv.org/abs/2507.03278"><strong>Secure LLM Execution with TEEs and Crypto-protected Accelerators</strong></a><br>
-Jiaqi Xue*, <strong>Yifei Zhao*</strong>, Mengxin Zheng, Fan Yao, Yan Solihin, Qian Lou<br>
-arXiv preprint, 2025<br>
-<div style="margin-top:6px;"><strong>TL,DR:</strong> Architected a secure LLM inference framework that offloads about 87% of Transformer computation from TEEs, achieving 3.3x-5.1x speedup via crypto-protected accelerators and heterogeneous execution (Intel SGX + CUDA + llama.cpp).</div>
+<section class="content-section" id="project">
+<h2>Project</h2>
+<ul class="research-list">
+<li class="research-entry flow-entry flow-aide">
+<div class="entry-title"><strong><a class="entry-title-link" href="https://github.com/yifei-gpt/AIDE-FHE">AIDE-FHE</a>: Autonomous Fully Homomorphic Encryption Challenge Solver</strong> (2026)</div>
+<div class="entry-body project-entry-body">
+<div class="entry-copy">
+<div class="entry-description">Built an FHE coding-agent <a href="https://huggingface.co/datasets/yifeiz29/fhe-challenge-data">evaluation pipeline</a> with execution-guided tree search over compiled and graded OpenFHE solutions.</div>
+</div>
+<!-- Research microfigure: AIDE-FHE
+<figure class="microviz aide-viz" role="img" aria-label="A tree-search coding agent explores candidate solutions, runs them in a build and grading environment, and uses execution feedback to select the best solution.">
+<span class="aide-root"></span>
+<span class="aide-branch aide-branch-top"></span>
+<span class="aide-branch aide-branch-mid"></span>
+<span class="aide-branch aide-branch-bottom"></span>
+<span class="aide-leaf aide-leaf-top"></span>
+<span class="aide-leaf aide-leaf-mid"></span>
+<span class="aide-leaf aide-leaf-bottom"></span>
+<span class="aide-selected-path"></span>
+<span class="aide-terminal"><b>&gt;_</b><span>build · run · grade</span></span>
+<span class="aide-result"><span></span></span>
+<span class="aide-feedback"><b>refine</b></span>
+<span class="viz-label aide-label-tree">search tree</span>
+<span class="viz-label aide-label-result">best</span>
+</figure>
+-->
+</div>
 </li>
 </ul>
+</section>
 
-<h2>Technologies</h2>
-<ul>
-<li><strong>Frameworks and Tools:</strong> PyTorch, vLLM, llama.cpp, ggml</li>
-<li><strong>Trusted Execution Environments:</strong> ARM TrustZone, Intel SGX, protected KVM</li>
-<li><strong>Model Efficiency:</strong> Model quantization, edge-device inference, performance tuning</li>
-</ul>
-
+<section class="content-section" id="experience">
 <h2>Experience</h2>
 <ul>
 <li>
 <strong>University of Central Florida</strong><br>
 Teaching Assistant - COP3402: System Software (Aug 2025 - Present)<br>
-Led weekly recitations and office hours; mentored 130+ students on systems programming and compiler fundamentals in C.
+Mentored 130+ students in C systems programming and compiler fundamentals.
 </li>
 </ul>
+</section>
 
+<section class="content-section" id="honors">
 <h2>Honors and Awards</h2>
 <ul>
 <li>ORCGS Doctoral Fellowship, University of Central Florida, 2024</li>
 </ul>
+</section>
 
 <div id="footer">
 <div id="footer-text"></div>
 </div>
 &copy; 2026 Yifei Zhao
 </div>
+<script src="./files/site.js"></script>
 </body>
 </html>
