@@ -453,7 +453,7 @@ img {
 }
 
 .venue-logo-neurips {
-    height: 28px;
+    height: 32px;
 }
 
 .profile-photo {
@@ -551,6 +551,44 @@ img {
 /* Publication hierarchy and paper-specific microfigures. */
 .entry-title {
     line-height: 1.24;
+}
+
+.project-downloads {
+    display: inline-block;
+    margin-left: 0.28em;
+    color: #5a626b;
+    font-size: 0.86em;
+    font-weight: normal;
+    white-space: nowrap;
+}
+
+.project-downloads-separator {
+    margin-right: 0.2em;
+    color: #8b9197;
+}
+
+.dataset-download-stat {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2em;
+    color: #315f99;
+    border-bottom: none;
+}
+
+.dataset-download-stat:hover,
+.dataset-download-stat:focus-visible {
+    color: #1f4f8c;
+    border-bottom: none;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.dataset-download-icon {
+    display: block;
+    flex: 0 0 auto;
+    width: 19px;
+    height: 18px;
+    object-fit: contain;
 }
 
 .entry-body {

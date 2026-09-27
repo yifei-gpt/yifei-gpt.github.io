@@ -84,4 +84,55 @@
             flowObserver.observe(entry);
         });
     }
+
+    var downloadStats = Array.prototype.slice.call(document.querySelectorAll("[data-hf-dataset]"));
+    var downloadRefreshMs = 6 * 60 * 60 * 1000;
+
+    var formatDownloadCount = function (count) {
+        return new Intl.NumberFormat("en-US").format(count);
+    };
+
+    var refreshDownloadStat = function (stat) {
+        var repoId = stat.getAttribute("data-hf-dataset");
+        var countNode = stat.querySelector("[data-download-count]");
+
+        if (!repoId || !countNode || !("fetch" in window)) {
+            return;
+        }
+
+        var repoPath = repoId.split("/").map(function (part) {
+            return encodeURIComponent(part);
+        }).join("/");
+        var apiUrl = "https://huggingface.co/api/datasets/" + repoPath + "?expand=downloadsAllTime";
+
+        window.fetch(apiUrl, {
+            cache: "no-store",
+            credentials: "omit",
+            mode: "cors"
+        }).then(function (response) {
+            if (!response.ok) {
+                throw new Error("Unable to load Hugging Face download statistics");
+            }
+            return response.json();
+        }).then(function (data) {
+            var count = Number(data.downloadsAllTime);
+            if (!Number.isFinite(count) || count < 0) {
+                throw new Error("Invalid Hugging Face download statistics");
+            }
+
+            var formattedCount = formatDownloadCount(count);
+            countNode.textContent = formattedCount;
+            stat.setAttribute("aria-label", formattedCount + " all-time dataset downloads on Hugging Face");
+            stat.setAttribute("data-downloads-status", "live");
+        }).catch(function () {
+            stat.setAttribute("data-downloads-status", "fallback");
+        });
+    };
+
+    downloadStats.forEach(function (stat) {
+        refreshDownloadStat(stat);
+        window.setInterval(function () {
+            refreshDownloadStat(stat);
+        }, downloadRefreshMs);
+    });
 }());
