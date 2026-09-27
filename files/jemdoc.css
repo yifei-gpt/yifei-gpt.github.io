@@ -591,6 +591,29 @@ img {
     object-fit: contain;
 }
 
+.project-engine-mark {
+    white-space: nowrap;
+}
+
+.project-gpu-art {
+    display: inline-block;
+    position: relative;
+    width: 42px;
+    height: 24px;
+    margin-left: 0.36em;
+    overflow: hidden;
+    vertical-align: -0.45em;
+}
+
+.project-gpu-art img {
+    position: absolute;
+    top: -9px;
+    left: 0;
+    width: 42px;
+    height: 42px;
+    max-width: none;
+}
+
 .entry-body {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
